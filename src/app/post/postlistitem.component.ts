@@ -10,9 +10,11 @@ export class PostListItemComponent implements OnInit {
 
   @Input() myPost: Post;
 
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
+    this.myPost.createdAt = new Date();
   }
 
   onLove() {
