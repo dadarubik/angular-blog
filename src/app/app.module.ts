@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { PostListComponent } from './post/postlist.component';
+import { PostListItemComponent } from './post/postlistitem.component';
+import { PostListComponent } from './postlist/postlist.component';
 
 
 
@@ -11,6 +12,7 @@ import { PostListComponent } from './post/postlist.component';
 @NgModule({
   declarations: [
     AppComponent,
+    PostListItemComponent,
     PostListComponent
   ],
   imports: [

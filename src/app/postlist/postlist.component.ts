@@ -7,8 +7,7 @@ import { Post } from '../post';
   styleUrls: ['./postlist.component.css']
 })
 export class PostListComponent implements OnInit {
-
-  @Input() myPost: Post;
+  @Input() myPosts: Post[];
 
   constructor() { }
 
