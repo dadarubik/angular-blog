@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { PostListItemComponent } from './post/postlistitem.component';
-import { PostListComponent } from './postlist/postlist.component';
+import { PostListItemComponent } from './post-list-item/postlistitem.component';
+import { PostListComponent } from './post-list/postlist.component';
 
 
 
