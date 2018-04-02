@@ -2,9 +2,9 @@
   <div class="col-xs-12">
     <h2>Posts</h2>
     <ul class="list-group">
-      <app-postlistitem *ngFor='let post of myPosts'
+      <app-post-list-item *ngFor='let post of posts'
                     [myPost]='post'>
-      </app-postlistitem>
+      </app-post-list-item>
     </ul>
   </div>
 </div>

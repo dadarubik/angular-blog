@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { PostListItemComponent } from './post-list-item/postlistitem.component';
-import { PostListComponent } from './post-list/postlist.component';
+import { PostListItemComponent } from './post-list-item/post-list-item.component';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostService } from './services/post.service';
 
 
 
@@ -19,7 +20,9 @@ import { PostListComponent } from './post-list/postlist.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

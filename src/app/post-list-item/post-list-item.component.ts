@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../post';
+import { Post } from '../models/Post.model';
 
 @Component({
-  selector: 'app-postlistitem',
-  templateUrl: './postlistitem.component.html',
-  styleUrls: ['./postlistitem.component.css']
+  selector: 'app-post-list-item',
+  templateUrl: './post-list-item.component.html',
+  styleUrls: ['./post-list-item.component.css']
 })
 export class PostListItemComponent implements OnInit {
 
