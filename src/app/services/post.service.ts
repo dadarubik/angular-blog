@@ -6,21 +6,8 @@ import * as firebase from 'firebase';
 @Injectable()
 export class PostService {
 
-  //posts: Post[] = [];
-  posts: Post[] = [
-    new Post( 'Premier post',
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis, lorem ut pretium ornare, nisl massa sodales sem, pulvinar ullamcorper ligula libero at ipsum. ',
-              1,
-              new Date().getTime()),
-    new Post( 'Deuxième post',
-              'Aliquam lacinia quam consequat, ultrices lacus vel, pulvinar turpis. Sed odio neque, bibendum eu enim non, convallis finibus libero.',
-              -1,
-              new Date().getTime()),
-    new Post( 'Troisième post',
-              'Fusce posuere venenatis purus, id porta sapien vulputate ut.',
-              0,
-              new Date().getTime())              
-  ];
+  posts: Post[] = [];
+
   postsSubject = new Subject<Post[]>();
 
   constructor() { }
@@ -30,17 +17,11 @@ export class PostService {
   }
 
   getPosts() {
-    //this.posts = ;
-    //TODO get
-    this.emitPosts();
-    /*
-
-        firebase.database().ref('/books')
+    firebase.database().ref('/posts')
       .on('value', (data) => {
-        this.books = data.val() ? data.val() : [];
-        this.emitBooks();
+        this.posts = data.val() ? data.val() : [];
+        this.emitPosts();
       })
-      */
   }
 
   addNewPost(post: Post) {
@@ -63,8 +44,41 @@ export class PostService {
     }
   }
 
+  updatePost(post: Post) {
+    const index = this.posts.findIndex(
+      (currentPost) => {
+        if (currentPost === post)
+          return true;
+      }
+    )
+    if (index > -1) {
+      this.posts[index] = post;
+      this.savePosts();
+      this.emitPosts();
+    }
+  }
+
   savePosts() {
     firebase.database().ref('/posts').set(this.posts);
+  }
+
+  generatePostsForTest() {
+    this.posts = [
+      new Post( 'Premier post',
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis, lorem ut pretium ornare, nisl massa sodales sem, pulvinar ullamcorper ligula libero at ipsum. ',
+                1,
+                new Date().getTime()),
+      new Post( 'Deuxième post',
+                'Aliquam lacinia quam consequat, ultrices lacus vel, pulvinar turpis. Sed odio neque, bibendum eu enim non, convallis finibus libero.',
+                -1,
+                new Date().getTime()),
+      new Post( 'Troisième post',
+                'Fusce posuere venenatis purus, id porta sapien vulputate ut.',
+                0,
+                new Date().getTime())              
+    ];
+    this.savePosts();
+    this.emitPosts();
   }
 
 }

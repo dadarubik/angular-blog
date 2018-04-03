@@ -18,10 +18,12 @@ export class PostListItemComponent implements OnInit {
 
   onLove() {
     this.myPost.loveIts++;
+    this.postService.updatePost(this.myPost);
   }
 
   onDontLove() {
     this.myPost.loveIts--;
+    this.postService.updatePost(this.myPost);
   }
 
   onRemovePost(post: Post) {

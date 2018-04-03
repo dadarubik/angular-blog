@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import * as firebase from 'firebase';
+import { PostService } from './services/post.service';
 
 
 
@@ -10,7 +11,7 @@ import * as firebase from 'firebase';
 })
 export class AppComponent { 
 
-  constructor() {
+  constructor(private postService : PostService) {
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyCKxCBfKAAq7zv4APQbrsoMwyEXtkXVnJ0",
@@ -21,6 +22,10 @@ export class AppComponent {
       messagingSenderId: "772012240138"
     };
     firebase.initializeApp(config);
+  }
+
+  onGeneratePosts() {
+    this.postService.generatePostsForTest();
   }
 
 }

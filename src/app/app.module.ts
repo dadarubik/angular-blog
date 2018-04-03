@@ -11,7 +11,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: 'posts', component: PostListComponent},
-  { path: 'new-post', component: NewPostComponent},
+  { path: 'new', component: NewPostComponent},
   { path: '', redirectTo: 'posts', pathMatch: 'full'},
   { path: '**', redirectTo: 'posts'}
 

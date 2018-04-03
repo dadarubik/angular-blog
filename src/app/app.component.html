@@ -5,7 +5,10 @@
           <a routerLink="posts">Posts</a>
         </li>
         <li routerLinkActive="active">
-            <a routerLink="new-post">Ajouter un post</a>
+            <a routerLink="new">Ajouter un post</a>
+        </li>
+        <li>
+            <a (click)="onGeneratePosts()" style="cursor: pointer;">Générer des posts pour test</a>
         </li>
       </ul>
     </div>
