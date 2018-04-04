@@ -25,7 +25,7 @@ export class PostService {
   }
 
   addNewPost(post: Post) {
-    this.posts.push(post);
+    this.posts.unshift(post);
     this.savePosts();
     this.emitPosts();
   }
@@ -64,18 +64,18 @@ export class PostService {
 
   generatePostsForTest() {
     this.posts = [
-      new Post( 'Premier post',
+      new Post( 'Troisième post',
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mattis, lorem ut pretium ornare, nisl massa sodales sem, pulvinar ullamcorper ligula libero at ipsum. ',
                 1,
                 new Date().getTime()),
       new Post( 'Deuxième post',
                 'Aliquam lacinia quam consequat, ultrices lacus vel, pulvinar turpis. Sed odio neque, bibendum eu enim non, convallis finibus libero.',
                 -1,
-                new Date().getTime()),
-      new Post( 'Troisième post',
+                new Date().getTime() - 1000 * 60 * 60),
+      new Post( 'Premier post',
                 'Fusce posuere venenatis purus, id porta sapien vulputate ut.',
                 0,
-                new Date().getTime())              
+                new Date().getTime() - 2 * 1000 * 60 * 60)              
     ];
     this.savePosts();
     this.emitPosts();
